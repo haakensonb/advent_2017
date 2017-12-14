@@ -1,4 +1,4 @@
-with open('input.txt') as f:
+with open('./day_1/input.txt') as f:
     puzzle_data = f.read()
 f.closed
 
