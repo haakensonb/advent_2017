@@ -1,5 +1,3 @@
-# spreadsheet = '5195 753 2468'
-
 def format_input():
     with open('./day_2/input.txt') as f:
         spreadsheet = f.read().strip().splitlines()
