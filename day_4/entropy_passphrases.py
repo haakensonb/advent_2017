@@ -1,8 +1,4 @@
-from itertools import permutations
-
-with open('./day_4/input.txt') as f:
-    passphrases = f.readlines()
-passphrases = [line.strip() for line in passphrases]
+passphrases = [line.strip() for line in open('./day_4/input.txt').readlines()]
 
 def is_valid_1(p_input):
     phrase = p_input.split(' ')
@@ -16,16 +12,10 @@ def is_valid_2(p_input):
     if len(words) == len(set(words)):
         valid = True
 
-    for word in words:
-        anagrams = set([''.join(p) for p in permutations(word)])
-        # Remove the original word from the set
-        if word in anagrams:
-            anagrams.remove(word)
-        all_anagrams.append(anagrams)
-    
-    for word in words:
-        for anagrams in all_anagrams:
-            if word in anagrams:
+    for i, word in enumerate(words):
+        for other_word in words[i+1:]:
+            # Words are anagrams if both end up the same when sorted
+            if sorted(word) == sorted(other_word):
                 valid = False
 
     return valid
