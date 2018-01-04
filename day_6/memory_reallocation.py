@@ -1,10 +1,8 @@
 import math
-# mem_bank = [0, 2, 7, 0]
+
 with open('./day_6/input.txt') as f:
     mem_bank = [int(num) for num in f.read().split()]
 f.close
-
-# print(mem_bank)
 
 def mem_reallocation(mem_bank):
     cycles = 0
@@ -22,7 +20,7 @@ def mem_reallocation(mem_bank):
             m -= 1
 
         cycles += 1
-    return cycles
+    return cycles, len(history)-history.index(mem_bank)
 
 
 print(mem_reallocation(mem_bank))
